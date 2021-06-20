@@ -65,7 +65,7 @@ def draw(filename,cho):
  import scipy.ndimage.interpolation as interp
  img = interp.rotate(input=img, angle=cho, axes=(0,1), reshape = False)
  
- #img=img.rotate(cho)
+ img=img.rotate(cho)
  output_filename = filename
  img.save(output_filename)
 return output_filename,gr_path

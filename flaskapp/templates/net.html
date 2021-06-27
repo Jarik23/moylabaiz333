@@ -25,4 +25,13 @@
 {% else %}
  <p> There is no image yet </p>
 {% endif %}
+
+<h2>grafik2: </h2> 
+<!-- проверяем есть ли данные классификации -->
+{% if gr_name2 %}
+ <p>{{gr_name2}}
+ <p><img src={{gr_name2}}/>
+{% else %}
+ <p> There is no image yet </p>
+{% endif %}
 {% endblock %}

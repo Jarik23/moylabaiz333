@@ -68,7 +68,18 @@ def draw(filename,cho):
  img=img.rotate(cho)
  output_filename = filename
  img.save(output_filename)
- return output_filename,gr_path
+ 
+ fig = plt.figure(figsize=(6, 4))
+ ax = fig.add_subplot()
+ data = np.random.randint(0, 255, (100, 100))
+ ax.imshow(img, cmap='plasma')
+ b = ax.pcolormesh(data, edgecolors='black', cmap='plasma')
+ fig.colorbar(b, ax=ax)
+ gr_path2 = "./static/newgr2.png"
+ sns.displot(data)
+ plt.savefig(gr_path2)
+ plt.close()
+ return output_filename,gr_path,gr_path2
 
 @app.route("/net",methods=['GET', 'POST'])
 def net():
@@ -78,17 +89,17 @@ def net():
  filename=None
  newfilename=None
  grname=None
-
+ grname2=None
  if form.validate_on_submit():
 
   filename = os.path.join('./static', secure_filename(form.upload.data.filename))
   ch=form.cho.data
  
   form.upload.data.save(filename)
-  newfilename,grname = draw(filename,ch)
+  newfilename,grname,grname2 = draw(filename,ch)
 
  
- return render_template('net.html',form=form,image_name=newfilename,gr_name=grname)
+ return render_template('net.html',form=form,image_name=newfilename,gr_name=grname,gr_name2=grname2)
 
 
 if __name__ == "__main__":

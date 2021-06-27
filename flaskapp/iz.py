@@ -68,7 +68,7 @@ def draw(filename,cho):
  #img=img.rotate(cho)
  output_filename = filename
  img.save(output_filename)
-return output_filename,gr_path
+ return output_filename,gr_path
 
 @app.route("/net",methods=['GET', 'POST'])
 def net():

@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+    border: 3px solid black;
+    }
+td, th {
+    padding: 5px; /* Поля вокруг текста */
+    border: 1px solid black;
+    }
+figure {
+    width: 100%; /* Ширина области */
+    height: 100%; /* Высота области */
+    margin: 0; /* Обнуляем отступы */
+    overflow: hidden; /* Прячем всё за пределами */
+    min-width: 600px; /* Минимальная ширина */
+   }
+figure img {
+    width: 100%; /* Ширина изображений */
+    margin: -10% 0 0 0; /* Сдвигаем вверх */
+ }
